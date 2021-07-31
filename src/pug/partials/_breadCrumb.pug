@@ -1,0 +1,14 @@
+mixin dataBreadcrumb(level1,level2,level3=false)
+    nav(aria-label='breadcrumb')
+        ol.breadcrumb
+            if level3
+                li.breadcrumb-item
+                    a(href='#')= level1
+                li.breadcrumb-item
+                    a(href='#')= level2
+                li.breadcrumb-item.active(aria-current='page')= level3
+            else
+                li.breadcrumb-item
+                    a(href='#')= level1
+                li.breadcrumb-item
+                    a(href='#')= level2

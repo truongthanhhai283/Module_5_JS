@@ -1,0 +1,215 @@
+// font size : 12/
+@mixin font-size($px, $lineHeight: false) {
+  $baseline: 14;
+  font-size: #{$px}px !important;
+  font-size: rem($px, $baseline);
+  @if $lineHeight {
+    $line-height: $px / $baseline * 1.2;
+    line-height: #{$line-height}rem;
+  }
+}
+
+@mixin border($direction: false, $width: 0, $style: null, $color: null) {
+  @if $direction {
+    -webkit-border-#{$direction}: #{$width}rem $style $color;
+    -moz-border-#{$direction}: #{$width}rem $style $color;
+    border-#{$direction}: #{$width}rem $style $color;
+  } @else {
+    -webkit-border: #{$width}rem $style $color;
+    -moz-border: #{$width}rem $style $color;
+    border: #{$width}rem $style $color;
+  }
+}
+
+@mixin borderRadius($direction: false, $width: 0) {
+  @if $direction {
+    -webkit-border-#{$direction}-radius: #{$width}rem;
+    -moz-border-#{$direction}-radius: #{$width}rem;
+    border-#{$direction}-radius: #{$width}rem;
+  } @else {
+    border-radius: #{$width}rem;
+  }
+}
+
+@mixin hover($colorBg: false, $colorText: false) {
+  @if $colorBg {
+    background: #{$colorBg};
+  }
+  @if $colorText {
+    color: #{$colorText};
+  }
+}
+
+@mixin active($colorBg: false, $colorText: false) {
+  @if $colorBg {
+    background: #{$colorBg} !important;
+  }
+  @if $colorText {
+    color: #{$colorText} !important;
+  }
+}
+@mixin boxShadow() {
+  -webkit-filter: drop-shadow(0px 1px 7.5px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0px 1px 7.5px rgba(0, 0, 0, 0.1));
+}
+
+@mixin transition() {
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+@mixin border-boxShadow {
+  box-shadow: 0 3px 6px $gray-8;
+}
+
+@mixin flex($direction, $justify, $alight, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $alight;
+  @if $gap !=0 {
+    gap: $gap;
+  }
+}
+@mixin position(
+  $pos,
+  $t: false,
+  $r: false,
+  $b: false,
+  $l: false,
+  $z-index: null
+) {
+  position: $pos;
+  @if $t {
+    top: #{$t};
+  }
+  @if $r {
+    right: #{$r};
+  }
+  @if $b {
+    bottom: #{$b};
+  }
+  @if $l {
+    left: #{$l};
+  }
+  @if $z-index {
+    z-index: #{$z-index};
+  }
+}
+
+@mixin display($dpl, $al-item: false, $text-align: false, $j-content: false) {
+  display: #{$dpl};
+  @if $al-item {
+    align-items: #{$al-item};
+  }
+  @if $text-align {
+    text-align: #{$text-align};
+  }
+  @if $j-content {
+    justify-content: #{$j-content};
+  }
+}
+
+/* Mixin */
+// Khai báo kích thước tương ứng với màn hình thiết b
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == medium) {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+  @if ($breakpoint == small) {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+}
+
+@mixin text13-weight($weight) {
+  @include font-size(13);
+  font-weight: #{$weight};
+  color: $gray-6;
+}
+
+@mixin text-weight($font, $weight) {
+  @include font-size($font);
+  font-weight: #{$weight};
+  color: $gray-6;
+}
+
+@mixin font-bold-upper() {
+  font-weight: bold;
+  display: flex;
+  text-transform: uppercase;
+}
+
+@mixin flex-direction($width, $height: false) {
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: #{$width};
+  @if $height {
+    height: $height;
+  } @else {
+    height: "";
+  }
+}
+
+@mixin buttonStyle($w, $bg: false, $c: false) {
+  width: #{$w};
+  background: #{$bg};
+  color: #{$c};
+}
+
+@mixin title-h2-w-mx($mr-l: false) {
+  @if $mr-l {
+    @include font-bold-upper();
+    @include font-size(13);
+    margin-left: 1rem;
+  } @else {
+    @include font-bold-upper();
+    @include font-size(13);
+  }
+}
+
+@mixin arrowSliderMultipleProduct($f, $lineHeight: false) {
+  @if $lineHeight {
+    @include font-size($f, lineHeight);
+  } @else {
+    @include font-size($f);
+  }
+  padding: 1rem;
+}
+
+@mixin for-size($breakpoint, $direction: down) {
+  //neu breakpoint ton tai
+  @if map-has-key($breakpoints, $breakpoint) {
+    //Kiểm tra breakpoint truyền vào có tồn tại như bạn đã định nghĩa hay không.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Xác định min-width hay max-width
+    @if $direction == up {
+      //Build media query
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    } @else if $direction == down {
+      //Build media query
+      @media (max-width: $breakpoint-value) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+}

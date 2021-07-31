@@ -1,0 +1,31 @@
+extends ../base/_base.pug
+block variables
+    - var titleHTMl = 'Đăng nhập'
+block content
+    .container
+        +dataBreadcrumb("Trang chủ","Đăng nhập")
+        .login__wrapper
+            .row
+                .col-md-6.col-sm-12
+                    h2 Thông tin cá nhân
+                    form(action='error-page.html')
+                        .row
+                            .col-12
+                                .form-group
+                                    +label-input-form("u", "Họ và tên:", true, "fullName", false, false, "ipFullName")                                    
+                            .col-12
+                                .form-group
+                                    +label-input-form("u", "Email:", true, "fullName", false, false, "ipFullName")                                   
+                            .col-12
+                                .form-check.d-flex.justify-content-between
+                                    .left
+                                        +label-checkbox-form("Ghi nhớ mật khẩu")                                        
+                                    .right
+                                        a(href="#").forgotpw  Bạn quên mật khẩu?
+                            .col-12
+                                .button-group
+                                    +buttonForm("submit","Đăng nhập")         
+                .col-md-6.col-sm-12
+                    h2 Bạn chưa có tài khoản?
+                    p Đăng ký tài khoản để mua hàng nhanh hơn. Theo dõi đơn đặt hàng, vận chuyển. Cập nhật các tin tức sự kiện và các chương trình giảm giá của chúng tôi.
+                    +buttonForm("button","Đăng ký","signup.html")                            

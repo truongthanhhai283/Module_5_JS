@@ -1,0 +1,127 @@
+include ../data/_data.pug
+
+mixin headerListItemTopLeft
+    each item in dataHeaderTopLeft
+        a.nav-link(href='#').nav-item(class=`${item.classActive}`)
+            i(class=`${item.icon}`)
+
+mixin headerListItemTopRight
+    each item in dataHeaderTopRight
+        a.nav-link(href=`${item.link}`).nav-item= item.text
+
+mixin headerBottomtitle(title, phone)
+    h3.title= title
+    span= phone
+
+mixin headerNavMenu()
+    each item in dataHeaderNavMenu
+        a(href=`./${item.homepage}` class=`${item.className} ${item.classActive}`)= item.text
+
+mixin text-title-w-icon(title)
+    .title-icon.icon-4-square-size
+        img(src=`./assets/images/4-black-squares.svg`, alt="Logo")
+    h2= title
+
+mixin footerTopAboutUS(classIcon, text)
+    .about
+        i(class=`${classIcon}`)
+        p= text
+
+mixin footerTopServiceList(data, haveicon)
+    if  haveicon 
+        each item in data
+            .wrapper-list-item
+                i(class=`${item.icon}`)
+                a(href="#").haveicon--item= item.text
+    else
+        each item in data            
+            a(href="#")= item.text
+
+mixin footerMiddlePayment(data)
+    each item in data
+        .payment-list-item
+            img(src=`./assets/images/payments/${item.img}`, alt="Logo")
+
+mixin footerMiddleAnswers()
+    each item in dataFooterAdvfeed
+        .advisory-feedback-item
+            .icon
+                i(class=`${item.icon}`)
+            .feedback-wrap
+                h5= item.text
+                strong= item.phone
+
+mixin sliderShowImg()
+    each item in slideShowImg
+     .carousel-item(class=`${item.active}`)
+        img(src=`./assets/images/${item.img}` alt=`${item.alt}` width=`${item.width}` height=`${item.height}`)
+    
+mixin sliderShowServices()
+    each item in slideShowServices
+        .slider-right__services-item.d-flex.align-items-center(class=`${item.active}`)
+            .icon
+                i(class=`${item.icon}`)
+            .desc 
+                h2= item.title
+                p= item.text
+
+mixin dataBreadcrumb(level1, level2, level3=false)
+    nav(aria-label='breadcrumb')
+        ol.breadcrumb
+            if level3
+                li.breadcrumb-item
+                    a(href='#')= level1
+                li.breadcrumb-item
+                    a(href='#')= level2
+                li.breadcrumb-item.active(aria-current='page')= level3
+            else
+                li.breadcrumb-item
+                    a(href='#')= level1
+                li.breadcrumb-item
+                    a(href='#')= level2
+
+
+mixin no-label-input-form(id, className=false, type=false, name=false, text,value=false)
+    input(id=`${id}` class=`${className}` type=`${type}` name=`${name}` placeHolder=`${text}` value=`${value}`).form-control
+
+mixin label-input-form(labelFor, text, active=true, className=false, type=false, name=false)
+    if active
+        label(for=labelFor)
+            strong= text 
+            span *
+    else
+        label(for=labelFor class="label-form")= text
+    input(id=`${id}` class=`${className}` type=`${type}` name=`${name}` placeHolder=`${text}`).form-control
+
+mixin label-checkbox-form(text)   
+    input#flexCheckDefault.form-check-input(type='checkbox' value='')
+    label.form-check-label(for='flexCheckDefault')
+        strong= text
+
+mixin buttonForm(type, text="", link)
+    if type == "button"
+        button(type=type class="btn-form" id=`${link}`).active
+            a(href=link)=text
+    else
+        button.btn-form(type=type class=`${link}` id=`${link}`)= text           
+
+mixin cartList(text,img,price)
+        .cart-item.p-3
+            img(src=img, alt="")
+            div.text-center
+                p.m-0= text
+                p.m-0
+                    span 1 x 
+                    span.price= price
+            a(href="#")
+                i.far.fa-times-circle
+
+mixin tableContent()
+    .table-responsive
+        table.table.table-bordered
+            thead
+                tr
+                    each item in tableCartTitle
+                        th(scope='col')= item
+            tbody.show-cart
+    

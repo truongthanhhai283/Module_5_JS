@@ -1,0 +1,53 @@
+include ./_mixin.pug
+include ./_variables.pug
+include ../data/_data.pug
+include ../partials/_breadCrumb.pug
+include ../partials/_cardSliderProduct.pug
+include ../partials/_listFilter.pug
+include ../partials/_product.pug
+include ../partials/_modal.pug
+include ../partials/_loading.pug
+block variables
+doctype html
+html(lang="en")
+    head
+        block head
+            meta(charset="UTF-8")
+            meta(http-equiv="X-UA-Compatible", content="IE=edge")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")            
+            link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')            
+            link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous")
+            link(href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet')        
+            link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')            
+            link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css')
+            link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css')
+            link(rel="stylesheet", href="../assets/sweetalert/dist/sweetalert2.min.css")            
+            link(rel="stylesheet", href="./assets/css/styles/style.css")            
+            title= (titleHTMl)
+    body 
+        block header
+            header.header
+                include ../partials/header/_header.pug    
+        
+        block content  
+                                            
+        block foot
+            footer.footer
+                include ../partials/footer/_footer.pug
+                
+        block scripts
+            script(src='https://kit.fontawesome.com/93146aa192.js' crossorigin='anonymous')           
+            script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+            script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')            
+            script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')    
+            script(src="./src/script/jquery/jquery.min.js")                                    
+            script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')                             
+            script(src="./src/script/toast.js")                  
+            script(src="./src/script/jquery/jquery.validate.min.js")                  
+            script(src="../assets/sweetalert/dist/sweetalert2.min.js")                  
+            script(src="./src/script/productList.js")                  
+            script(src="./src/script/cart.js")               
+            script(src="./src/script/payment.js")                  
+                        
+

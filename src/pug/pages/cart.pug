@@ -1,0 +1,91 @@
+extends ../base/_base.pug
+block variables
+    - var titleHTMl = 'Giỏ hàng'
+block content
+    .container
+        +dataBreadcrumb("Trang chủ", "Giỏ hàng")
+        .row.no-gutters
+            .cart__wrapper.col-8           
+                +tableContent()                                              
+                .alert
+                    span.closebtn(onclick="this.parentElement.style.display='none';") &times;
+                    strong Không có sản phẩm nào trong giỏ hàng!
+            .total_wrapper.col-4
+                .wrap
+                    h1 THÔNG TIN KHÁCH HÀNG
+                    hr.section-break-2
+                    form(enctype="multipart/form-data" method="post")#demofrm                        
+                        input.ipProductId.form-input(type='text' name='' hidden)
+                        input.ipProductPrice.form-input(type='text' name='' hidden)
+                        input.ipProductName.form-input(type='text' name='' hidden) 
+                        input.ipProductNumber.form-input(type='text' name='GiaoHangTanNoi' hidden)
+                        input.ipTotal.form-input(type='text' name='GiaoHangTanNoi' hidden)
+                        .form-group           
+                            label(for='exampleInputEmail1') Họ và tên 
+                            +no-label-input-form("ipFullName", false, false, "HoVaTen","Họ và tên", "")
+                            .message-dialog
+                                span#errosrequiredName.errorMsg * Kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC3; tr&#x1ED1;ng
+                                span#errosrusername.errorMsg * &Dstrok;&#x1ECB;nh d&#x1EA1;ng t&ecirc;n kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c ch&#x1EE9;a s&#x1ED1;!
+                        .form-group 
+                            label(for='exampleInputEmail1') Số điện thoại
+                            +no-label-input-form("ipPhone", false, false, "Phone","Số điện thoại", "") 
+                            .message-dialog
+                                span#errosrequiredPhone.errorMsg * Kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC3; tr&#x1ED1;ng
+                                span#errorPhone.errorMsg *S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i ph&#x1EA3;i t&#x1EEB; 10 - 12 ch&#x1EEF; s&#x1ED1;
+                        .form-group 
+                            label(for='exampleInputEmail1') Email
+                            +no-label-input-form("ipEmail", false, false, "Phone","Email", "") 
+                            .message-dialog
+                                span#errosrequiredEmail.errorMsg * Kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC3; tr&#x1ED1;ng
+                                span#erroremail.errorMsg * 2
+                        .form-group
+                            label(for='exampleInputEmail1') Hình thức nhận hàng
+                            select.custom-select(onchange="checkChoosen()" id="ddl1" name="PaymentChoose")
+                                option(value="") --- Chọn ---
+                                option(value='1') Giao tận nơi
+                                option(value='2') Nhận tại cửa hàng
+                            .message-dialog
+                                span#errosrequiredDropdown.errorMsg * Vui l&ograve;ng ch&#x1ECD;n h&igrave;nh th&#x1EE9;c thanh to&aacute;n
+
+                        .form-group
+                            label(for='exampleInputEmail1') ĐỊA CHỈ
+                            +no-label-input-form("ipADD","Địa chỉ", false,"Address", "Địa chỉ","")
+                            .message-dialog
+                                span#errosrequiredADD.errorMsg * Kh&ocirc;ng &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC3; tr&#x1ED1;ng
+
+                        .form-group 
+                             +no-label-input-form("ipNote", false, false, "Note","Yêu cầu khác", "")                             
+                        
+                        .form-check
+                            input#flexRadioDefault3.form-check-input(type='checkbox' name='cbConfirm' value='shipping')
+                            label.form-check-label(for='flexRadioDefault3')
+                                | Gọi người xác nhận  hàng (Nếu có)
+                        .form-check
+                            input#flexRadioDefault4.form-check-input(type='checkbox' name='cbConfirm' value='print order')
+                            label.form-check-label(for='flexRadioDefault4')
+                                | Xuất hoá đơn
+                        input.valueCbOptions.form-check-input(type='text' name='' hidden)                            
+                        //- .form-check
+                        //-     input#cbPromotion.form-check-input(type='checkbox' value='')
+                        //-     label.form-check-label(for='cbPromotion')
+                        //-         | Sử dụng mã giảm giá                              
+                        //- .form-group.promise_content
+                        //-     .input-group.mt-3
+                        //-         input.form-control.ip-promotion(type='text' placeholder="Nhập mã giảm giá" aria-label="Nhập mã giảm giá" aria-describedby='basic-addon2')
+                        //-         .input-group-append
+                        //-             button.btn.btn-warning.btn-discount(type='button') Thêm
+                        
+
+                        hr.style1
+                        //- .form-group.d-flex.justify-content-between.mb-0
+                        //-     label.col-form-label(for='staticEmail') Tiền được giảm
+                        //-     label.col-form-label.money_discount(for='staticEmail')
+                        .form-group.d-flex.justify-content-between.mb-0
+                            label.col-form-label(for='staticEmail') Tổng tiền
+                            label.col-form-label.total-cart(for='staticEmail')                                                
+                        .btn-group.text-right
+                            +buttonForm("button","Tiếp tục mua hàng","index.html")    
+                            button(type="button" class="btn btn-warning" id='btn-payment') Thanh toán   
+                    
+
+

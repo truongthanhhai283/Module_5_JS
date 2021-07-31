@@ -1,0 +1,24 @@
+@import "./base/reset";
+@import "./base/variables";
+@import "./base/globals";
+@import "./base/mixins";
+@import "./layout/header";
+@import "./layout/footer";
+@import "./pages/_home.scss";
+@import "./pages/_error.scss";
+@import "./pages/signup";
+@import "./pages/login";
+@import "./pages/cart";
+@import "./partials/product";
+@import "./partials/carousel";
+@import "./partials/productFilter";
+@import "./partials/modal";
+@import "./partials/loading";
+@import "./pages/productList";
+@import "./pages/productDetails";
+@import "./pages/blog";
+@import "./pages/blogDetails";
+@import "./partials/validate";
+@import "./pages/payment";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");

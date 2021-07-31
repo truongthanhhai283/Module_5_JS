@@ -1,0 +1,95 @@
+.fancyBox {
+  @include for-size(lg) {
+    display: none;
+  }
+  label {
+    margin: 0;
+  }
+  #modal {
+    display: none;
+  }
+  #modal:checked ~ .modal__overlay {
+    transform: translateY(-100%);
+  }
+  #modal:checked ~ .modal__content {
+    @include hide();
+  }
+  .modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 11;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
+  }
+  .modal__content {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 450px;
+    position: fixed;
+    z-index: 16;
+    transition: all 0.4s ease-in-out;
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../../images/bg-form.jpg");
+    &-parent {
+      height: 100%;
+      background: $box-shadow-color-1;
+      position: relative;
+      .modal__content-inner {
+        position: relative;
+        top: 20%;
+        p {
+          @include font-size(14);
+        }
+        h3 {
+          @include text-weight(18, 600);
+          color: $primary-1;
+          padding: 1rem 0;
+        }
+        button {
+          width: 100%;
+          margin: 1rem 0;
+        }
+        strong {
+          margin-left: 1rem;
+        }
+      }
+
+      .input__hidden-modalHome {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        padding: 0.2rem 0.7rem;
+        font-size: 20px;
+        background-color: $primary-1;
+        color: $primary-2;
+      }
+      form {
+        padding: 0 6rem;
+        > input {
+          height: 4.5rem;
+        }
+        button {
+          height: 4.5rem;
+
+          color: $primary-3;
+        }
+        .checkbox {
+          input {
+            height: 1.5rem;
+            width: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

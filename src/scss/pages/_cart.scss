@@ -1,0 +1,151 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.cart__wrapper {
+  margin: 4rem auto;
+  i:hover {
+    cursor: pointer;
+  }
+  .button-group {
+    margin: 2rem 0;
+    .btn-form {
+      margin-right: 0;
+      &.active {
+        margin-right: 1rem;
+      }
+    }
+  }
+  .item-count,
+  .total_price {
+    @include text-weight(14, 600);
+  }
+  .minus-item,
+  .plus-item {
+    @include text-weight(13, 600);
+    color: $primary-3;
+    background: $primary-2;
+    border: none;
+    padding: 1rem;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  .alert {
+    @include text-weight(13, 600);
+    padding: 20px;
+    background-color: $primary-2;
+    color: $primary-3;
+    display: none;
+  }
+
+  .closebtn {
+    margin-left: 1.5rem;
+    margin-top: -0.5rem;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    display: none;
+  }
+
+  .closebtn:hover {
+    color: $primary-3;
+  }
+}
+
+.total_wrapper {
+  background: $gray-1;
+  .wrap {
+    padding: 1rem;
+    h1 {
+      @include text-weight(16, 500);
+      text-transform: uppercase;
+      text-align: center;
+      color: $text-color;
+    }
+    /* Section Break 2 */
+    .section-break-2 {
+      background-color: transparent;
+      border: 0;
+      border-top: 1px solid $break-color;
+      height: 1px;
+      margin: 1.3rem auto;
+      text-align: center;
+      width: 80%;
+
+      &:before {
+        background-color: $page-color;
+        color: darken($break-color, 20%);
+        content: "\25C8";
+        display: inline-block;
+        font-size: 20px;
+        left: 50%;
+        letter-spacing: 0;
+        line-height: 1;
+        text-indent: -1px;
+        text-rendering: geometricPrecision;
+        transform: translateY(-53%);
+        width: 15px;
+      }
+    }
+    hr.style1 {
+      @include border(top, 0.08, solid, $gray-2-border);
+    }
+  }
+  form {
+    label {
+      padding-top: 1rem;
+      @include text-weight(13, 600);
+    }
+    .custom-select {
+      @include text-weight(13, 500);
+      height: 3rem;
+    }
+    .form-check {
+      padding-top: 0;
+      padding-bottom: 0;
+      @include display(flex, center);
+      label {
+        padding-top: 0;
+      }
+    }
+    button {
+      color: $primary-3;
+    }
+    .promise_content {
+      display: none;
+    }
+    .ip-promotion {
+      padding: 0.5rem;
+    }
+
+    .btn-warning {
+      @include text-weight(13, 600);
+      color: $primary-3;
+    }
+  }
+  .total-cart,
+  .money_discount {
+    @include text-weight(14, 600);
+    color: $red;
+  }
+  .form-check {
+    @include display(flex, center);
+    margin-bottom: 1.5rem;
+    .cb_item:first-child {
+      margin-right: 3rem;
+    }
+  }
+}

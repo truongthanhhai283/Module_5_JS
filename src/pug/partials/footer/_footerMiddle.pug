@@ -1,0 +1,16 @@
+include ../../base/_mixin.pug
+include ../../data/_data.pug
+
+.container
+    .footer__middle
+        .row
+            .col-md-6.col-sm-6
+                .footer__middle-left
+                    h2 Thanh toán:
+                    .row.payment-list.no-gutters
+                        +footerMiddlePayment(dataFooterMiddlePayment)
+            .col-md-6.col-sm-6
+                .footer__middle-right
+                    h2 Giải đáp nhanh:
+                    .row.answers.no-gutters
+                        +footerMiddleAnswers()

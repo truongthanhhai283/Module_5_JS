@@ -1,0 +1,19 @@
+block variables
+mixin modalHome
+    .fancyBox
+        input(type='checkbox' name = '' id = 'modal')
+        label(for="modal" class = 'modal__overlay')
+        .modal__content
+            .modal__content-parent
+                label(for="modal").input__hidden-modalHome
+                    i.fas.fa-times
+                .modal__content-inner.pt-5
+                    h3.text-center ĐĂNG KÝ NHẬN TIN TỨC CỦA CHÚNG TÔI
+                    p.text-center Bạn muốn nhanh chóng nhận các tin tức khuyển mại và ưu đãi lớn của chúng tôi hàng tuần ?
+                    p.pb-3.text-center Hãy đăng ký ngay theo form dưới đây
+                    form(action="#").form-group
+                        +no-label-input-form("", "", "", "", "Nhập email của bạn tại đây...","")
+                        +buttonForm("submit", "Đăng ký")
+                        .checkbox.pt-2.d-flex.align-items-center
+                            .col-12.d-flex.align-items-center
+                                +label-checkbox-form("Không hiện thị thông báo này")

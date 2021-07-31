@@ -1,0 +1,21 @@
+extends ../base/_base.pug
+block variables
+    - var titleHTMl = 'Blog'
+block content
+    .container
+        +dataBreadcrumb("Trang chủ", "Thông tin chi tiết")
+        section.news
+            .row
+                .col-lg-3
+                    .row
+                        +listFilter("DANH MỤC SẢN PHẨM", listFilter, "", "X", "Y")                        
+                        +newsFilter("DANH MỤC TIN TỨC", listNews)                        
+                        +newsFilter("THƯ VIỆN HÌNH ẢNH", newsImg)                        
+                        +newsFilter("THẺ TAGS", newsTag)
+                block contentNews 
+                    .col-lg-9
+                        each item in newsDiscount
+                            +news(item)
+                        .col-lg-12.py-5.border-top
+                            +pagination()
+                    

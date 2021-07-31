@@ -1,0 +1,24 @@
+.header__bottom
+    .container
+        .row.no-gutters.align-items-center
+            .col-md-3.col-sm-12
+                .header__bottom-logo
+                    img(src="./assets/images/logo_2.png", alt="Logo")
+            .col-md-5.col-sm-12
+                .header__bottom-hotline-ordernow
+                    .hotline-ordernow__left
+                        +headerBottomtitle("HOTLINE:","(04) 9500 9650 - (04) 9500 8850")
+
+                    .hotline-ordernow__right
+                        +headerBottomtitle("ĐẶT HÀNG NHANH","(04) 9500 9650 - (04) 9500 8850")
+
+            .col-md-4.col-sm-12
+                .header__bottom-search
+                    .d-flex.justify-content-end
+                        .input-group
+                            input#example-search-input.form-control.py-2(type='search' placeHolder='Tìm kiếm...')
+                            span.input-group-append
+                            button.btn(type='button')
+                                i.fa.fa-search
+
+

@@ -1,0 +1,25 @@
+.message-dialog {
+  @include font-size(13);
+  text-align: left;
+  margin: 1rem 0;
+  .errorMsg {
+    color: $red;
+    margin-bottom: 10px;
+    display: none;
+  }
+  .sucessMsg {
+    color: #6b8e23;
+    margin-bottom: 10px;
+  }
+}
+
+.swal2-actions {
+  button {
+    @include font-size(16);
+    margin: 0 0.5rem;
+  }
+}
+.swal2-popup {
+  width: 30%;
+  height: 30%;
+}

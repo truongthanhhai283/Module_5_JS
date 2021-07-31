@@ -1,0 +1,30 @@
+{
+  "name": "fresher-fe-pr1-hai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "json-server --watch db.json --port 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haitt-2557/Fresher-FE-PR1-Hai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haitt-2557/Fresher-FE-PR1-Hai/issues"
+  },
+  "homepage": "https://github.com/haitt-2557/Fresher-FE-PR1-Hai#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "browser-sync": "^2.27.3",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^4.1.0",
+    "json-server": "^0.16.3"
+  }
+}

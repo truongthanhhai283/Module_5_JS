@@ -1,0 +1,87 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.news__content {
+  a {
+    color: $primary-2;
+  }
+  .img-news {
+    img {
+      width: 100%;
+    }
+  }
+  h6 {
+    @include text-weight(14, 600);
+    color: $primary-1;
+  }
+  .news-info {
+    @include for-size(md) {
+      flex-direction: column !important;
+    }
+    padding: 1rem 0;
+    color: $gray-3;
+  }
+
+  .news-text {
+    @include text-weight(12, 600);
+    padding: 1rem, 0;
+  }
+
+  padding-bottom: 2rem;
+  &:not(:first-child()) {
+    padding-top: 2.5rem;
+    @include border(top, 0.08, solid, $gray-2-border);
+  }
+}
+
+.newsFilter {
+  margin-top: 1.5rem;
+  .flex-wrap {
+    @include border(false, 0.08, solid, $gray-2-border);
+  }
+  .filter--title {
+    @include text-weight(13, 600);
+    padding: 1.5rem 1rem;
+    color: $primary-2;
+  }
+  ul {
+    padding: 1rem;
+    li {
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      list-style: none;
+      color: $gray-3;
+      line-height: 2rem;
+      cursor: pointer;
+      &:hover {
+        .newsList {
+          color: $primary-2;
+        }
+      }
+      a {
+        color: $gray-3;
+      }
+      @include for-size(normal) {
+        display: none;
+      }
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+  }
+  @include for-size(lg) {
+    display: none;
+  }
+  .newsTag {
+    border-color: $primary-1;
+    color: $gray-5;
+    &:hover {
+      background-color: $primary-1;
+      color: $primary-3;
+    }
+  }
+  .news-img {
+    img {
+      width: 6.5rem;
+    }
+  }
+}

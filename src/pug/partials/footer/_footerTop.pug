@@ -1,0 +1,37 @@
+include ../../base/_mixin.pug
+include ../../data/_data.pug
+
+.container
+    .footer__top
+        .row.no-gutters.justify-content-between
+            .col-md-3.col-sm-6.mb-5
+                .title.d-flex.align-items-center.align-items-center
+                    +text-title-w-icon("Về chúng tôi")
+                    
+                .wrapper
+                    p.para Công ty Cổ phần Công nghệ DKT đã và đang khẳng định được vị trí hàng đầu trong lĩnh vực Thương mại điện tử.
+                        +footerTopAboutUS("fas fa-map-marker-alt", "Tầng 4 - Tòa nhà Hanoi Group 442 Đội Cấn Ba Đình - Hà Nội")                         
+                        +footerTopAboutUS("fas fa-envelope", "support@dkt.com.vn")                         
+                        +footerTopAboutUS("fas fa-mobile-alt", "(04) 9500 9650 - (04) 9500 8850")                         
+            .col-md-2.col-sm-6.mb-5
+                .title.d-flex.align-items-center
+                   +text-title-w-icon("Chính sách")
+
+                .wrapper-list.wrapper
+                   +footerTopServiceList(dataFooterTopList1,false)
+
+            .col-md-2.col-sm-4.mb-5
+                .title.d-flex.align-items-center
+                    +text-title-w-icon("Dịch vụ và hỗ trợ")
+                .wrapper-list.wrapper
+                    +footerTopServiceList(dataFooterTopList2,false)
+            .col-md-2.col-sm-4.mb-5
+                .title.d-flex.align-items-center
+                    +text-title-w-icon("Tin tức - Sự kiện")
+                .wrapper-list.wrapper
+                    +footerTopServiceList(dataFooterTopList3,false)
+            .col-md-2.col-sm-4.mb-5
+                .title.d-flex.align-items-center
+                    +text-title-w-icon("Kết nối")
+                .wrapper-list.wrapper
+                    +footerTopServiceList(dataFooterTopList4,true)

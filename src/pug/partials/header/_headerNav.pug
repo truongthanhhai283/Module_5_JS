@@ -1,0 +1,12 @@
+include ../../base/_mixin.pug
+include ../../data/_data.pug
+
+.header__nav-wrapper
+    .container.d-flex.justify-content-between.align-items-center
+        .wrapper-menu
+            +headerNavMenu()
+        .wrapper-shopping-cart
+            a.cart.position-relative.d-inline-flex.nav__menu-item.nav__menu-item--nohover(href="cart.html" aria-label='View your shopping cart')
+                i.fas.fa.fa-shopping-cart.fa-lg
+                span.cart-basket.d-flex.align-items-center.justify-content-center
+

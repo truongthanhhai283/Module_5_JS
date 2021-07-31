@@ -1,0 +1,37 @@
+extends ../base/_base.pug
+block variables
+    - var titleHTMl = 'Đăng ký'
+block content
+    .container
+        +dataBreadcrumb("Trang chủ","Đăng ký")
+        .signup__wrapper
+            h2 Thông tin cá nhân
+            form(action='error-page.html')
+                .row
+                    .col-md-6.col-sm-12
+                        .form-group
+                            +label-input-form("u", "Họ và tên:", true, "fullName", false, false, "ipFullName")
+                    .col-md-6.col-sm-12
+                        .form-group
+                            +label-input-form("u", "Email:", true, "fullName", false, false, "ipFullName") 
+                    .col-md-6.col-sm-12
+                        .form-group
+                            +label-input-form("u", "Số điện thoại:", true, "fullName", false, false, "ipFullName")     
+                    .col-md-6.col-sm-12
+                        .form-group
+                            +label-input-form("u", "Địa chỉ:", true, "fullName", false, false, "ipFullName")                                
+                    .col-12
+                        .form-check
+                            +label-checkbox-form("Đăng ký nhận tin tức qua email")                                
+                    .col-12
+                        h2 Thông tin đăng nhập
+                    .col-md-6.col-sm-12
+                        .form-group
+                           +label-input-form("u", "Tên đăng nhập:", true, "fullName", false, false, "ipFullName")                                
+                    .col-md-6.col-sm-12
+                        .form-group
+                           +label-input-form("u", "Email:", true, "fullName", false, false, "ipFullName")                                
+                    .col-12
+                        .button-group
+                            +buttonForm("button","Quay lại","index.html")                            
+                            +buttonForm("submit","Đăng ký")                       

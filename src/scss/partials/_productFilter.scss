@@ -1,0 +1,72 @@
+.listFilter {
+  @include border-boxShadow();
+  @include text13-weight(600);
+  i {
+    display: inline-block;
+  }
+  .filter__item {
+    list-style: none !important;
+    color: $gray-3;
+    padding: 1.2rem;
+    line-height: 2rem;
+    @include for-size(normal) {
+      display: none;
+    }
+    cursor: pointer;
+    text-transform: uppercase;
+    &:hover {
+      @include hover($primary-2, $primary-3);
+    }
+    .filterColor {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .filter__discount {
+    @include for-size(normal) {
+      display: none;
+    }
+    cursor: pointer;
+    .d-flex {
+      padding: 0.5rem;
+      img {
+        height: 6rem;
+        width: auto;
+      }
+    }
+  }
+}
+.filter--title {
+  a {
+    display: none;
+    @include for-size(normal) {
+      display: inline-block;
+    }
+  }
+}
+.filter {
+  .filter__item {
+    color: $gray-3;
+    cursor: pointer;
+    &:hover {
+      color: $primary-2 !important;
+    }
+    .filterColor {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .filter__discount {
+    cursor: pointer;
+    .d-flex {
+      padding: 0.5rem;
+      justify-content: space-around;
+      img {
+        height: 10rem;
+        width: auto;
+      }
+    }
+  }
+}

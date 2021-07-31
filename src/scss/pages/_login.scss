@@ -1,0 +1,19 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.login__wrapper {
+  h2 {
+    @include title-h2-w-mx(false);
+    padding: 2rem 2rem 2rem 0;
+  }
+  .forgotpw {
+    font-style: italic;
+    text-decoration: underline;
+    color: $primary-2;
+  }
+  p {
+    @include text13-weight(600);
+    line-height: 2.2rem;
+    margin: 2rem 0;
+  }
+}

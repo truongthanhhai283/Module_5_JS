@@ -1,0 +1,14 @@
+include ../../base/_mixin.pug
+
+.logo-mobile-tablet-show
+    a(href="#")
+        img(src="./assets/images/logo_2.png", alt="test")
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container.header__top-menu
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarText' aria-controls='navbarText' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarText.collapse.navbar-collapse
+            .navbar-nav.mr-auto
+                +headerListItemTopLeft()
+            .navbar-nav.mr-auto.justify-content-end.navbar-nav--right
+                +headerListItemTopRight()

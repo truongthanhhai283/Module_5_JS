@@ -1,0 +1,49 @@
+extend ../base/_base.pug
+block variables
+    - var titleHTMl = 'Danh sách sản phẩm'
+block content
+    //- a(href="./error-page.html") text
+    .wrapper 
+        .container     
+            +dataBreadcrumb("Trang chủ", "Danh sách sản phẩm")
+
+            section.listProducts__categories.pb-5
+                .row
+                    .col-lg-3
+                        .row
+                            +listFilter("DANH MỤC SẢN PHẨM", listFilter, "", "X")                            
+                            +listFilter("TÌM THEO MỨC GIÁ", softPrice, "", "Y")                            
+                            +listFilter("TÌM THEO MÀU SẮC", softPrice, "", "Z")                            
+                            +listFilter("SẢN PHẨM KHUYẾN MÃI", softPrice, "Y", "")
+                    .col-lg-9
+                        .row.filter--list-product
+                            .col-lg-12.d-flex.justify-content-between.align-items-start.listProducts__select
+                                form.form-inline.form-select.w-100
+                                    .form-group.pr-5
+                                        label(for="selectProduct").mr-2 Sắp xếp theo: 
+                                        select.rounded-0.custom-select.form-control#selectProduct.pr-2(onchange="handleOnchangeSoft(event)")
+                                            option(value="default") Giá
+                                            option(value="desc") Giá từ cao đến thấp
+                                            option(value="asc") Giá từ thấp đến cao
+                                    .form-group
+                                        label(for="selectProduct1").mr-2 Show: 
+                                        select.rounded-0.custom-select.form-control#selectProduct1(onchange="handleOnchangeLimit(event)")
+                                            option(value=10) 10
+                                            option(value=5) 5
+                        .row
+                            .col-lg-12.position-relative
+                                ul.nav.listProduct__btn-view.mt-auto.position-absolute
+                                    li
+                                        a.active( data-toggle="tab" href="#home")
+                                            i.fas.fa-bars
+                                    li
+                                        a(data-toggle="tab" href="#menu1").ml-2
+                                            i.fas.fa-th
+                            .col-lg-12.pt-3
+                                .tab-content
+                                        #home.tab-pane.active.main__product-list
+                                           
+                                        #menu1.tab-pane.main__product-grid                                            
+                        .row
+                            .col-lg-12.pb-4
+                                #pagination          

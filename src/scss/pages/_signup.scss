@@ -1,0 +1,9 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.signup__wrapper {
+    h2 {
+        @include title-h2-w-mx(false);
+        padding: 2rem 2rem 2rem 0;
+    }
+}

@@ -1,0 +1,161 @@
+@import "../base/variables";
+@import "../base/mixins";
+.header {
+  background: $primary-3;
+  .logo-mobile-tablet-show {
+    @include display(none);
+    height: 100px;
+  }
+  .navbar-nav.mr-auto.justify-content-end.navbar-nav--right {
+    flex: $flex-1;
+  }
+
+  .bg-light {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include border(bottom, 0.08, solid, $gray-2-border);
+  }
+  #navbarText {
+    @include font-size(13, false);
+    font-weight: 600;
+
+    .navbar-nav:first-child,
+    .navbar-nav--right .nav-item:first-child {
+      @include border(left, 0.08, solid, $gray-2-border);
+    }
+
+    .nav-item {
+      @include border(right, 0.08, solid, $gray-2-border);
+    }
+    & a {
+      padding: 2rem;
+
+      &:hover {
+        @include hover($primary-2, $primary-3);
+      }
+    }
+  }
+
+  .header__bottom {
+    padding: 1.2rem;
+    &-logo {
+      @include display(flex);
+      height: 8rem;
+      width: 14rem;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &-hotline-ordernow {
+      @include display(flex, false, false, space-around);
+      .title {
+        @include font-size(13);
+        line-height: 2rem;
+        color: $primary-2;
+        font-weight: 600;
+      }
+      span {
+        @include font-size(11);
+        color: $primary-1;
+        font-weight: 500;
+      }
+    }
+
+    &-search {
+      .input-group {
+        width: 90%;
+        height: 4rem;
+
+        input {
+          @include borderRadius(top-left, 3);
+          @include borderRadius(bottom-left, 3);
+          padding: 2rem;
+          @include font-size(13);
+        }
+        button {
+          @include borderRadius(top-right, 3);
+          @include borderRadius(bottom-right, 3);
+          @include border(none);
+        }
+      }
+    }
+  }
+
+  .header__nav-wrapper {
+    @include for-size(normal){
+      display: none !important;
+    }
+    background: $primary-1;
+    .active {
+      @include active($primary-2, false);
+      border: none;
+    }
+    .nav__menu-item {
+      @include font-size(13);
+      @include display(inline-block);
+      padding: 2rem;
+      color: $primary-3;
+      font-weight: 600;
+      text-transform: uppercase;
+      @include border(right, 0.08, solid, $gray-5);
+      &:hover {
+        @include hover($primary-2, false);
+      }
+    }
+
+    .nav__menu-item--nohover {
+      @include border(left, 0.08, solid, $gray-5);
+      @include border(right, 0.08, solid, $gray-5);
+      &:hover {
+        background: none;
+      }
+    }
+    a.cart {
+      color: $primary-3;
+    }
+
+    a.cart .cart-basket {
+      @include font-size(10);
+      @include position(absolute, 1rem, 1rem, "", "", "");
+      @include borderRadius(false, 50);
+      width: 1.5rem;
+      height: 1.5rem;
+      color: $primary-3;
+      background-color: $primary-2;
+    }
+  }
+
+  @include respond(medium) {
+    .logo-mobile-tablet-show {
+      @include display(block, false, center, false);
+    }
+    .header__bottom {
+      display: none;
+    }
+    .wrapper-menu {
+      @include display(flex, false, center, false);
+      line-height: 2rem;
+    }
+    .navbar-nav--right {
+      @include border(left, 0.08, solid, $gray-2-border);
+    }
+  }
+
+  @include respond(small) {
+    .logo-mobile-tablet-show {
+      @include display(block, false, center, false);
+    }
+    .header__bottom {
+      display: none;
+    }
+    .wrapper-menu {
+      @include display(none, false, false, false);
+    }
+    .wrapper-shopping-cart {
+      @include display(none, false, false, false);
+    }
+  }
+}

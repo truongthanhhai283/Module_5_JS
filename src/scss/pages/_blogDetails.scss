@@ -1,0 +1,40 @@
+.blogDetails__content {
+  .blog__comments {
+    span {
+      display: inline-block;
+      padding: 1rem 0;
+      @include text-weight(13, 600);
+    }
+    .comment__content-name {
+      @include text-weight(13, 600);
+      color: $gray-6;
+    }
+  }
+
+  .comment {
+    .comment__content-text {
+      @include text-weight(12, 500);
+    }
+    .text-italic {
+      color: $primary-2;
+    }
+  }
+
+  .text-span {
+    @include text-weight(12, 500);
+  }
+  .text-tag {
+    @include text-weight(13, 500);
+  }
+  img {
+    width: 100%;
+  }
+
+  .blogDetails__content-bot {
+    @include for-size(md) {
+      .tag-socials-wrapper {
+        display: none;
+      }
+    }
+  }
+}

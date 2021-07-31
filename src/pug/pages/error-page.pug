@@ -1,0 +1,17 @@
+extends ../base/_base.pug
+block variables
+    - var titleHTMl = 'Thông báo lỗi'
+block content
+    .error__page
+        .container
+            .row.justify-content-center
+                .col-md-5.col-sm-4
+                    .error__page-desc
+                       .desc-wrap
+                            h1 404 Error
+                            p Chúng tôi không tìm thấy kết quả nào phù hợp với tìm kiếm của bạn
+                            p Xin vui lòng trở về trang chủ
+                            a.btn.btn-dark(href='./index.html' role='button') Trang chủ
+                .col-md-5.col-sm-4
+                    .error__page-img
+                        img(src="./assets/images/products/10.png", alt="img", srcset="")

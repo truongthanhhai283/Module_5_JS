@@ -1,0 +1,36 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+.error__page {
+  &-desc {
+    @include display(flex, center, center, center);
+    height: 100%;
+    h1 {
+      @include text-weight(45, 700);
+      text-transform: uppercase;
+      color: $primary-2;
+    }
+    p {
+      @include text13-weight(600);
+      line-height: 2rem;
+    }
+
+    a {
+      margin-top: 2rem;
+      padding: 1rem;
+      @include text13-weight(600);
+      @include buttonStyle(10rem, $primary-1, $primary-3);
+      border: none;
+      &:hover {
+        @include hover($primary-2);
+      }
+    }
+  }
+
+  &-img {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
